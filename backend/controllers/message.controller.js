@@ -56,6 +56,33 @@ export const getMessages = async (req, res) => {
     res.status(200).json(messages);
   } catch (error) {
     console.log("Error in getMessages controller: ", error.message);
-    res.status(500).json({ error: "Internal rever error" });
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+export const deleteMessage = async (req, res) => {
+  try {
+    const messageId = req.params.id;
+
+    const userId = req.user.id;
+
+    const message = await Message.findById(messageId);
+
+    if (!message) {
+      return res.status(404).json({ message: "Message not found" });
+    }
+
+    if (message.senderId.toString() !== userId) {
+      return res
+        .status(403)
+        .json({ message: "You do not have permission to delete this message" });
+    }
+
+    await message.deleteOne();
+
+    return res.status(200).json({ message: "Message successfully deleted" });
+  } catch (error) {
+    console.log("Error in deleteMessage controller: ", error.message);
+    res.status(500).json({ error: "Internal server error" });
   }
 };

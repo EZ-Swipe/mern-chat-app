@@ -1,8 +1,23 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import UseLogin from "../../hooks/useLogin";
+
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const { loading, login } = UseLogin();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await login(username, password);
+  };
+
   return (
     <div className="p-6 min-w-96 rounded-md">
-      <h1 className="text-4xl font-bold mb-6 text-center text-emerald-50">Login <span className="text-emerald-300">ChatApp</span></h1>
-      <form className="flex flex-col gap-y-4" action="">
+      <h1 className="text-4xl font-bold mb-6 text-center text-emerald-50">
+        Login <span className="text-emerald-300">ChatApp</span>
+      </h1>
+      <form className="flex flex-col gap-y-4" onSubmit={handleSubmit}>
         <label className="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +27,13 @@ const Login = () => {
           >
             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
           </svg>
-          <input type="text" className="grow" placeholder="Username" />
+          <input
+            type="text"
+            className="grow"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </label>
         <label className="input input-bordered flex items-center gap-2">
           <svg
@@ -27,10 +48,20 @@ const Login = () => {
               clipRule="evenodd"
             />
           </svg>
-          <input type="password" className="grow" placeholder="Password"/>
+          <input
+            type="password"
+            className="grow"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </label>
-        <a className="hover:underline hover:text-emerald-300" href="#">{"Don't"} have an account?</a>
-        <button className="btn btn-outline btn-accent">Primary</button>
+        <Link to="/signup" className="hover:underline hover:text-emerald-300">
+          {"Don't"} have an account?
+        </Link>
+        <button className="btn btn-outline btn-accent" disabled={loading}>
+          {loading ? <span className="loading loading-spinner"></span> : "Login"}
+        </button>
       </form>
     </div>
   );

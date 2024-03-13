@@ -1,0 +1,33 @@
+.custom-aside {
+   width: 300px;
+   transition: all 0.3s ease;
+}
+
+.aside-toggle-icon {
+   display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+
+   .aside-toggle-icon {
+      display: block;
+
+      position: absolute;
+      z-index: 1;
+      top: 25px;
+      right: -40px;
+   }
+   
+   .custom-aside {
+      margin-left: -300px;
+   }
+
+   .custom-aside.aside-visible {
+      position: absolute;
+      height: 100vh;
+      z-index: 2;
+      margin-left: 0;
+   }
+}
+
