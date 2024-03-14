@@ -5,11 +5,13 @@ import Welcome from "../../components/Welcome";
 import useGetMessages from "../../hooks/useGetMessages";
 
 import Message from "../../components/main/Message";
+import useListenMessages from "../../hooks/useListenMessages";
 
 const Main = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
 
   const { messages, loading } = useGetMessages();
+  useListenMessages();
   const lastMessageRef = useRef();
 
   useEffect(() => {
@@ -31,7 +33,7 @@ const Main = () => {
           </div>
 
           {!loading && messages.length === 0 && (
-            <p className="flex items-center justify-center w-full h-full">
+            <p className="flex items-center justify-center w-full h-full text-emerald-400 text-xl">
               Send a message to start the conversation
             </p>
           )}

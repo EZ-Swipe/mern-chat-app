@@ -7,6 +7,12 @@
    display: none;
 }
 
+.dropdown-position {
+   position: absolute;
+   top: -2rem;
+   right: 0.5rem;
+}
+
 
 @media screen and (max-width: 768px) {
 

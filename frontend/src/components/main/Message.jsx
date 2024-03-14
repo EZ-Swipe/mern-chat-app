@@ -21,6 +21,8 @@ const Message = ({ message }) => {
 
   const bubbleBgColor = fromMe ? "bg-emerald-900" : "";
 
+  const shakeClass = message.shouldShake ? "shake" : "";
+
   const handleMouseEnter = () => {
     if (fromMe) {
       setShowControls(true);
@@ -42,7 +44,7 @@ const Message = ({ message }) => {
 
   return (
     <div
-      className={`chat md:chat-start relative pl-3 ease-linear duration-75  ${chatClassName}`}
+      className={`chat md:chat-start relative pl-3 ease-linear duration-75 ${chatClassName}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -56,7 +58,7 @@ const Message = ({ message }) => {
           <img alt="Profile Pic" src={profilePic} />
         </div>
       </div>
-      <div className={`chat-bubble text-white ${bubbleBgColor}`}>
+      <div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass}`}>
         {message.message}
       </div>
       <div className="chat-footer opacity-50 text-xs flex gap1 items-center">

@@ -3,7 +3,7 @@ import { MdDeleteOutline } from "react-icons/md";
 
 const MessageControls = ({ handleDelete }) => {
   return (
-    <div className={`dropdown dropdown-left absolute -top-8 right-2`}>
+    <div className='dropdown md:dropdown-left absolute md:-top-8 top-4 dropdown-top left-2 md:right-2 md:left-auto'>
       <div tabIndex={0} role="button" className="btn btn-xs m-1">
         <BsThreeDots size="1.5em" />
       </div>
