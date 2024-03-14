@@ -6,8 +6,8 @@ export const SocketContext = createContext();
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useSocketContext = () => {
-   return useContext(SocketContext);
-}
+  return useContext(SocketContext);
+};
 
 export const SocketContextProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
@@ -16,7 +16,7 @@ export const SocketContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (authUser) {
-      const socket = io("http://localhost:5000", {
+      const socket = io("https://mern-chat-app-petproject.onrender.com", {
         query: {
           userId: authUser._id,
         },
@@ -25,8 +25,8 @@ export const SocketContextProvider = ({ children }) => {
       setSocket(socket);
 
       socket.on("getOnlineUsers", (users) => {
-         setOnlineUsers(users);
-      })
+        setOnlineUsers(users);
+      });
 
       return () => socket.close();
     } else {
