@@ -29,7 +29,7 @@ const SignUp = () => {
         SignUp <span className="text-emerald-300">ChatApp</span>
       </h1>
       <form className="flex flex-col gap-y-4" onSubmit={handleSubmit}>
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2 bg-zinc-900/[0.65] text-gray-400">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -46,7 +46,7 @@ const SignUp = () => {
             onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
           />
         </label>
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2 bg-zinc-900/[0.65] text-gray-400">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -63,7 +63,7 @@ const SignUp = () => {
             onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
           />
         </label>
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2 bg-zinc-900/[0.65] text-gray-400">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -84,7 +84,7 @@ const SignUp = () => {
             onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
           />
         </label>
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2 bg-zinc-900/[0.65] text-gray-400">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -111,7 +111,7 @@ const SignUp = () => {
           onCheckboxChange={handleCheckboxChange}
           selectedGender={inputs.gender}
         />
-        <Link to="/login" className="hover:underline hover:text-emerald-300">
+        <Link to="/login" className="hover:underline hover:text-emerald-300 text-gray-400">
           Already have an account?
         </Link>
         <button className="btn btn-outline btn-accent" disabled={loading}>

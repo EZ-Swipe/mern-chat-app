@@ -12,7 +12,7 @@ const Logout = () => {
       {!loading ? (
         <a
           onClick={handleLogout}
-          className="flex gap-2 items-center text-gray-400 font-semibold  "
+          className="flex gap-2 items-center text-gray-400 font-semibold"
         >
           <svg
             fill="#9CA3AF"

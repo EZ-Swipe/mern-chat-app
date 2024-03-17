@@ -4,7 +4,6 @@ import useSendMessage from "../hooks/useSendMessage";
 const MessageInput = () => {
   const { loading, sendMessage } = useSendMessage();
   const [message, setMessage] = useState("");
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +18,7 @@ const MessageInput = () => {
         placeholder="Write a message..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        className="input input-bordered input-success w-full focus:outline-none"
+        className="input input-bordered input-success w-full focus:outline-none bg-zinc-800/[0.5] text-gray-400"
       />
       {loading ? (
         <span className="loading loading-spinner"></span>
